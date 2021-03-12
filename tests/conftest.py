@@ -6,9 +6,11 @@ from src.data_classes import Play, Act, Scene, Line
 
 # XML Roots
 
+
 @pytest.fixture
 def play_xml_path():
     return os.path.join("data", "xml", "a_midsummer_nights_dream.xml")
+
 
 @pytest.fixture
 def play_root(play_xml_path):
@@ -51,13 +53,16 @@ def line(line_root):
 def line_direction(line_direction_root):
     return Line(line_direction_root)
 
+
 @pytest.fixture
 def scene(scene_root):
     return Scene(scene_root)
 
+
 @pytest.fixture
 def act(act_root):
     return Act(act_root)
+
 
 @pytest.fixture
 def play(play_root):
