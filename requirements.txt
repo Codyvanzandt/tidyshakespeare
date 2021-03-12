@@ -6,3 +6,4 @@ black
 pyyaml >=4.2b1
 
 # Configuring project dependencies
+lxml
