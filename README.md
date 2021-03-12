@@ -1,2 +1,2 @@
-# PythonTemplate
-A Gitpod-Compatible Template for Python Development Environments
+# tidyshakespeare
+## Shakespeare's Plays: Neat, Tidy, and Ready to Analyze
