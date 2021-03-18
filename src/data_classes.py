@@ -114,10 +114,11 @@ class Line:
                 speaker_node = self.root_node.xpath(
                     "./ancestor::tei:sp", namespaces=NAMESPACES
                 )
-                return speaker_node[0].get("who")
+                who = speaker_node[0].get("who")
+                return who if who else str()
             except IndexError:
                 return str()
             
     def get_text(self):
         children = self.root_node.iterchildren("{*}w", "{*}c", "{*}pc",)
-        return "".join(child.text for child in children).strip()
+        return "".join(child.text for child in children if child.text).strip()
