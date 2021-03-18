@@ -7,6 +7,7 @@ def postprocess_play(play_data):
     play_data = list(remove_empty_text(play_data))
     play_data = list(add_throughline_numbers(play_data))
     play_data = list(parse_names(play_data))
+    play_data = list(split_directions_by_who(play_data))
     return play_data
 
 def remove_empty_text(play_data):
@@ -25,11 +26,10 @@ def parse_names(play_data):
 
 def parse_name(name): 
     return re.match(r"#?(.*)", name).group(1)
-    
 
-
-
-
-
-
-
+def split_directions_by_who(play_data):
+    for line in play_data:
+        for new_who in line["who"].split(","):
+            new_line = dict(line)
+            new_line["who"] = new_who
+            yield new_line

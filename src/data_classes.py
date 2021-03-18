@@ -107,14 +107,16 @@ class Line:
             return int(line_number)
 
     def get_who(self):
-        try:
-            speaker_node = self.root_node.xpath(
-                "./ancestor::tei:sp", namespaces=NAMESPACES
-            )
-            assert len(speaker_node) <= 1
-            return speaker_node[0].get("who")
-        except IndexError:
-            return self.root_node.get("who")
+        if (who := self.root_node.get("who")):
+            return who
+        else:
+            try:
+                speaker_node = self.root_node.xpath(
+                    "./ancestor::tei:sp", namespaces=NAMESPACES
+                )
+                return speaker_node[0].get("who")
+            except IndexError:
+                return str()
             
     def get_text(self):
         children = self.root_node.iterchildren("{*}w", "{*}c", "{*}pc",)
