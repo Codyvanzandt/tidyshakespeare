@@ -14,7 +14,7 @@ def test_play_repr(play):
 
 
 def test_play_title(play):
-    assert play.title == "A Midsummer Night's Dream"
+    assert play.title == "A Midsummer Night’s Dream"
 
 
 def test_play_acts(play):

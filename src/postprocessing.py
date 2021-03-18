@@ -41,7 +41,8 @@ def split_directions_by_who(play_data):
             new_line["who"] = new_who
             yield new_line
 
+
 def replace_title_single_quote(play_data):
     for line in play_data:
-        line["title"] = line["title"].replace("’","'")
+        line["title"] = line["title"].replace("’", "'")
         yield line
