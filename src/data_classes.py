@@ -50,6 +50,7 @@ class Scene:
         self.root_node = scene_root_node
         self.number = self.get_number()
         self.lines = self.get_lines()
+
     def __repr__(self):
         return f"{self.__class__.__name__}({self.number})"
 
@@ -60,7 +61,9 @@ class Scene:
         return [
             Line(line_root)
             for line_root in self.root_node.xpath(
-                ".//*[self::tei:l or self::tei:p or self::tei:stage[tei:w]]", namespaces=NAMESPACES)
+                ".//*[self::tei:l or self::tei:p or self::tei:stage[tei:w]]",
+                namespaces=NAMESPACES,
+            )
         ]
 
 
@@ -101,13 +104,13 @@ class Line:
 
     def get_number(self):
         if self.line_type == "direction" or self.line_subtype == "prose":
-            return self.root_node.get('n')
+            return self.root_node.get("n")
         else:
             _, line_number = self.root_node.get("n").rsplit(".", 1)
             return int(line_number)
 
     def get_who(self):
-        if (who := self.root_node.get("who")):
+        if (who := self.root_node.get("who")) :
             return who
         else:
             try:
@@ -118,7 +121,11 @@ class Line:
                 return who if who else str()
             except IndexError:
                 return str()
-            
+
     def get_text(self):
-        children = self.root_node.iterchildren("{*}w", "{*}c", "{*}pc",)
+        children = self.root_node.iterchildren(
+            "{*}w",
+            "{*}c",
+            "{*}pc",
+        )
         return "".join(child.text for child in children if child.text).strip()

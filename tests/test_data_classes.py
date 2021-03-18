@@ -85,6 +85,7 @@ def test_line_type(line_direction, line):
     assert line_direction.line_type == "direction"
     assert line.line_type == "speech"
 
+
 def test_line_subtype(line_direction, line):
     assert line_direction.line_subtype == "entrance"
     assert line.line_subtype == "verse"

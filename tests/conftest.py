@@ -9,7 +9,7 @@ from src.data_classes import Play, Act, Scene, Line
 
 @pytest.fixture
 def play_xml_path():
-    return os.path.join("data", "xml", "a_midsummer_nights_dream.xml")
+    return os.path.join("data", "xml", "a-midsummer-nights-dream.xml")
 
 
 @pytest.fixture

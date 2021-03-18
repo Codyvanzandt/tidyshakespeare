@@ -7,11 +7,15 @@ def read_play_csv(path):
         reader = DictReader(play_csv_file, delimiter="\t", quotechar="|")
         return list(reader)
 
+
 def write_play_csv(list_of_dicts, path):
     with open(path, "w") as play_csv_file:
-        writer = DictWriter(play_csv_file, fieldnames=CSV_FIELD_NAMES, delimiter="\t", quotechar="|")
+        writer = DictWriter(
+            play_csv_file, fieldnames=CSV_FIELD_NAMES, delimiter="\t", quotechar="|"
+        )
         writer.writeheader()
         writer.writerows(list_of_dicts)
+
 
 def get_play_data(play):
     def _get_play_data(play):
@@ -24,10 +28,9 @@ def get_play_data(play):
                         "scene": scene.number,
                         "number": line.number,
                         "type": line.line_type,
-                        "subtype" : line.line_subtype,
+                        "subtype": line.line_subtype,
                         "who": line.who,
                         "text": line.text,
                     }
-    return list(_get_play_data(play))
-        
 
+    return list(_get_play_data(play))
