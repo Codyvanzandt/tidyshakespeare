@@ -9,6 +9,7 @@ def postprocess_play(play_data):
     play_data = list(add_throughline_numbers(play_data))
     play_data = list(parse_names(play_data))
     play_data = list(split_directions_by_who(play_data))
+    play_data = list(replace_title_single_quote(play_data))
     return play_data
 
 
@@ -39,3 +40,8 @@ def split_directions_by_who(play_data):
             new_line = dict(line)
             new_line["who"] = new_who
             yield new_line
+
+def replace_title_single_quote(play_data):
+    for line in play_data:
+        line["title"] = line["title"].replace("’","'")
+        yield line
