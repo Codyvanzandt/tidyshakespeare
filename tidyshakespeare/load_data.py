@@ -32,7 +32,7 @@ def load(*play_names):
 
 
 def _get_file_name(*play_names):
-    if play_names == [
+    if list(play_names) == [
         "all",
     ]:
         return pkg_resources.resource_listdir("tidyshakespeare", "data/")

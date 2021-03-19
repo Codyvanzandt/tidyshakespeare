@@ -67,3 +67,15 @@ def act(act_root):
 @pytest.fixture
 def play(play_root):
     return Play(play_root)
+
+
+# Test XML
+
+@pytest.fixture(scope="function")
+def fake_xml_root():
+    return etree.fromstring("""<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<A>
+<lb/>
+<lb/>
+</A>
+</TEI>""")
