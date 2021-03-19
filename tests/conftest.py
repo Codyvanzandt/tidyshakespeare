@@ -71,11 +71,14 @@ def play(play_root):
 
 # Test XML
 
+
 @pytest.fixture(scope="function")
 def fake_xml_root():
-    return etree.fromstring("""<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    return etree.fromstring(
+        """<TEI xmlns="http://www.tei-c.org/ns/1.0">
 <A>
 <lb/>
 <lb/>
 </A>
-</TEI>""")
+</TEI>"""
+    )

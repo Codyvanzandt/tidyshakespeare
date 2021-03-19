@@ -23,4 +23,5 @@ def create_play_csv(input_xml_path, output_csv_path):
     postprocessed_play_data = postprocess_play(play_data)
     write_play_csv(postprocessed_play_data, output_csv_path)
 
+
 create_all_play_csv("data/xml/", "tidyshakespeare/data/")

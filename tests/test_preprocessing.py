@@ -9,7 +9,7 @@ def test_change_line_breaks_to_spaces(fake_xml_root):
     assert etree.QName(break_container.getchildren()[0]).localname == "c"
     assert fake_xml_root.xpath(".//tei:lb", namespaces=NAMESPACES) == list()
 
+
 def test_preprocess_play(fake_xml_root):
     preprocess_play(fake_xml_root)
-    assert  True
-
+    assert True
