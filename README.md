@@ -22,6 +22,7 @@
   </p>
 </p>
 
+## Note: This README is a template. Real README forthcoming.
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
